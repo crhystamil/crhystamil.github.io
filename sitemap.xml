@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>/</loc>
+    <lastmod>2025-03-19T20:40:22-04:00</lastmod>
+  </url><url>
+    <loc>/posts/priv_esc/priv_esc2/</loc>
+    <lastmod>2025-03-19T20:40:22-04:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2025-03-19T20:40:22-04:00</lastmod>
+  </url><url>
+    <loc>/posts/priv_esc/priv_esc1/</loc>
+    <lastmod>2025-03-19T19:49:31-04:00</lastmod>
+  </url><url>
+    <loc>/about/</loc>
+    <lastmod>2025-03-12T02:31:18-04:00</lastmod>
+  </url><url>
+    <loc>/courses/</loc>
+    <lastmod>2025-03-12T01:40:18-04:00</lastmod>
+  </url><url>
+    <loc>/courses/linux/</loc>
+    <lastmod>2025-03-12T01:40:18-04:00</lastmod>
+  </url><url>
+    <loc>/posts/elcerrajero/</loc>
+    <lastmod>2025-03-11T23:50:44-04:00</lastmod>
+  </url><url>
+    <loc>/courses/android/</loc>
+    <lastmod>2025-03-11T11:28:07-04:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+  </url><url>
+    <loc>/tags/</loc>
+  </url>
+</urlset>

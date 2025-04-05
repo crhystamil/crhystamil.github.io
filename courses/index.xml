@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Courses on El Cerrajero | Cybersecurity</title>
+    <link>/courses/</link>
+    <description>Recent content in Courses on El Cerrajero | Cybersecurity</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Mar 2025 01:40:18 -0400</lastBuildDate><atom:link href="/courses/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>/courses/linux/</link>
+      <pubDate>Wed, 12 Mar 2025 01:40:18 -0400</pubDate>
+      
+      <guid>/courses/linux/</guid>
+      <description>linux First Tab Second Tab This is markdown content.
+This is a code block. </description>
+    </item>
+    
+    <item>
+      <title>Cursos</title>
+      <link>/courses/android/</link>
+      <pubDate>Tue, 11 Mar 2025 11:28:07 -0400</pubDate>
+      
+      <guid>/courses/android/</guid>
+      <description>Hugo tabs Simple Tabs Modulo 1 Modulo 2 Modulo 3 Modulo 4 Modulo 5 Modulo 6 **Contenido modulo 1** **Contenido modulo 2** **Contenido modulo 3** **Contenido modulo 4** **Contenido modulo 5** **Contenido modulo 6** </description>
+    </item>
+    
+  </channel>
+</rss>

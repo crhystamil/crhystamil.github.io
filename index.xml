@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>El Cerrajero | Cybersecurity</title>
+    <link>/</link>
+    <description>Recent content on El Cerrajero | Cybersecurity</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Mar 2025 20:40:22 -0400</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elevacion de privilegios en linux - part2</title>
+      <link>/posts/priv_esc/priv_esc2/</link>
+      <pubDate>Wed, 19 Mar 2025 20:40:22 -0400</pubDate>
+      
+      <guid>/posts/priv_esc/priv_esc2/</guid>
+      <description>Package Detective: Investiga el Software Instalado dpkg -l
+Lista todos los paquetes instalados en sistemas basados en Debian. rpm -qa
+Muestra todos los paquetes instalados en sistemas basados en Red Hat. apt list --installed
+Alternativa para ver los paquetes instalados en distribuciones basadas en Debian. cat /var/log/dpkg.log | tail
+Revisa el log de instalaciones de paquetes en sistemas Debian. rpm -qi &amp;lt;paquete&amp;gt;
+Proporciona información detallada de un paquete específico. yum list installed</description>
+    </item>
+    
+    <item>
+      <title>Elevacion de privilegios en linux - part1</title>
+      <link>/posts/priv_esc/priv_esc1/</link>
+      <pubDate>Wed, 19 Mar 2025 19:49:31 -0400</pubDate>
+      
+      <guid>/posts/priv_esc/priv_esc1/</guid>
+      <description>Linux PrivEsc: Comandos y Técnicas Bienvenido a nuestra serie donde exploraremos técnicas y comandos para la recolección de información en sistemas Linux orientados a pruebas de elevación de privilegios (PrivEsc).
+¡Bienvenido al Mundo Linux: Conoce Tu Sistema! Comandos uname -a
+Muestra información completa del kernel, arquitectura y versión del sistema. whoami
+Indica el usuario actual. id
+Muestra el UID, GID y grupos del usuario. arch
+Presenta la arquitectura del procesador de forma resumida.</description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>/courses/linux/</link>
+      <pubDate>Wed, 12 Mar 2025 01:40:18 -0400</pubDate>
+      
+      <guid>/courses/linux/</guid>
+      <description>linux First Tab Second Tab This is markdown content.
+This is a code block. </description>
+    </item>
+    
+    <item>
+      <title>Elcerrajero</title>
+      <link>/posts/elcerrajero/</link>
+      <pubDate>Tue, 11 Mar 2025 23:50:44 -0400</pubDate>
+      
+      <guid>/posts/elcerrajero/</guid>
+      <description>La historia detrás de &amp;ldquo;El Cerrajero&amp;rdquo; Desde siempre he creído que un pequeño detalle puede marcar la diferencia, ya sea para descifrar un enigma digital o para abrir la puerta a nuevas oportunidades. Mi apodo, El Cerrajero, nace de esa pasión por la ciberseguridad y se inspira en un personaje de la película Matrix.
+¿Por qué &amp;ldquo;El Cerrajero&amp;rdquo;? En Matrix, el cerrajero es mucho más que alguien que abre puertas. Es el puente que conecta diferentes realidades, accediendo a espacios que, a simple vista, parecen inalcanzables.</description>
+    </item>
+    
+    <item>
+      <title>Cursos</title>
+      <link>/courses/android/</link>
+      <pubDate>Tue, 11 Mar 2025 11:28:07 -0400</pubDate>
+      
+      <guid>/courses/android/</guid>
+      <description>Hugo tabs Simple Tabs Modulo 1 Modulo 2 Modulo 3 Modulo 4 Modulo 5 Modulo 6 **Contenido modulo 1** **Contenido modulo 2** **Contenido modulo 3** **Contenido modulo 4** **Contenido modulo 5** **Contenido modulo 6** </description>
+    </item>
+    
+  </channel>
+</rss>
