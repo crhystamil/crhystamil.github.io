@@ -1,0 +1,146 @@
+---
+const topics = [
+  {
+    label: "Hacking ético",
+    icon: '<path d="M12 3 4 6v6c0 4 4 7 8 9 4-2 8-5 8-9V6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/>',
+  },
+  {
+    label: "Linux",
+    icon: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3m6 0h4"/>',
+  },
+  {
+    label: "Android Reversing",
+    icon: '<path d="m7 4-2-2m12 2 2-2M4 11a8 8 0 0 1 16 0v7H4V11Zm4 7v3m8-3v3M1 12v5m22-5v5"/><path d="M8 8h.01M16 8h.01" stroke-width="3"/>',
+  },
+  {
+    label: "Auditoría de seguridad",
+    icon: '<circle cx="10" cy="10" r="6"/><path d="m15 15 6 6m-14-11 2 2 4-4"/>',
+  },
+  {
+    label: "Formación",
+    icon: '<path d="m2 8 10-5 10 5-10 5L2 8Zm4 2v7c4 3 8 3 12 0v-7m4-2v8"/>',
+  },
+];
+---
+
+<div class="topics" role="region" aria-label="Áreas de conocimiento">
+  <div class="topics-window">
+    <div class="topics-track">
+      {[false, true].map((duplicate) => (
+        <ul class="topics-group" aria-hidden={duplicate ? "true" : undefined}>
+          {topics.map((topic) => (
+            <li>
+              <svg
+                viewBox="0 0 24 24"
+                width="28"
+                height="28"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                set:html={topic.icon}
+              />
+              <span>{topic.label}</span>
+            </li>
+          ))}
+        </ul>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .topics {
+    min-width: 0;
+    border-top: 1px solid var(--line);
+    margin-top: 70px;
+    padding: 28px 0;
+  }
+  .topics-window {
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+  }
+  .topics-track {
+    display: flex;
+    width: max-content;
+    animation: topics-scroll 32s linear infinite;
+  }
+  .topics-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 1100px;
+    flex-shrink: 0;
+    list-style: none;
+    gap: 64px;
+    margin: 0;
+    padding: 0 64px 0 0;
+  }
+  .topics-group li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    white-space: nowrap;
+    color: var(--white-icon);
+    font: 13px var(--mono);
+  }
+  .topics-group svg {
+    flex-shrink: 0;
+    color: var(--sec);
+    opacity: 0.8;
+  }
+  .topics:hover .topics-track {
+    animation-play-state: paused;
+  }
+  @keyframes topics-scroll {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (max-width: 760px) {
+    .topics {
+      margin-top: 36px;
+      padding: 24px 0;
+    }
+    .topics-group {
+      min-width: 0;
+      gap: 36px;
+      padding-right: 36px;
+    }
+    .topics-group li {
+      font-size: 12px;
+      gap: 10px;
+    }
+    .topics-group svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .topics-window {
+      mask-image: none;
+    }
+    .topics-track {
+      width: auto;
+      animation: none;
+    }
+    .topics-group {
+      flex-wrap: wrap;
+      min-width: 0;
+      flex-shrink: 1;
+      padding: 0;
+      gap: 20px 28px;
+    }
+    .topics-group[aria-hidden="true"] {
+      display: none;
+    }
+  }
+</style>

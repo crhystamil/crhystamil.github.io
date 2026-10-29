@@ -1,0 +1,180 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/nav.astro";
+import Home from "../components/home.astro";
+import Footer from "../components/footer.astro";
+import ServiceCards from "../components/serviceCards.astro";
+import { courses } from "../data/site";
+---
+
+<Layout title="La llave a la ciberseguridad">
+  <Nav />
+  <main id="contenido">
+    <Home />
+    <section class="section" id="servicios" aria-labelledby="services-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">01 / Servicios profesionales</p>
+            <h2 id="services-title">Seguridad para tu organización</h2>
+          </div>
+          <a class="text-link" href="/services/">
+            Explorar servicios ↗
+          </a>
+        </div>
+        <p class="services-intro muted">
+          Pentesting y capacitación para identificar riesgos, fortalecer tus
+          sistemas y desarrollar las capacidades de tu equipo.
+        </p>
+        <ServiceCards />
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">02 / Programas de entrenamiento</p>
+            <h2>Formación con enfoque práctico</h2>
+          </div>
+          <a class="text-link" href="/courses/">
+            Explorar cursos ↗
+          </a>
+        </div>
+        <div class="course-grid">
+          {courses.slice(0, 2).map((course) => (
+            <a class="card" href={course.url}>
+              <div class="course-top">
+                <span class="eyebrow">{course.code}</span>
+                <span class="tag">En preparación</span>
+              </div>
+              <h3>{course.title}</h3>
+              <p>{course.description}</p>
+              <span class="course-link">Conocer el curso ↗</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap about-preview">
+        <div>
+          <p class="eyebrow">03 / Detrás del alias</p>
+          <h2>
+            Soy Cristhian.
+            <br />
+            Puedes llamarme
+            <br />
+            <span>El Cerrajero.</span>
+          </h2>
+        </div>
+        <div>
+          <p class="muted">
+            Auditor de Seguridad Informática y Chief Security Officer en Ethical
+            Hacking Consultores, Panamá. He colaborado con equipos de Argentina,
+            Chile, Panamá, Colombia, Costa Rica y México.
+          </p>
+          <p class="muted">
+            Como el Cerrajero de Matrix, me apasiona descubrir qué hay al otro
+            lado de cada puerta. Aquí comparto las llaves: experiencias, guías y
+            formación para entender y fortalecer la seguridad digital.
+          </p>
+          <a class="text-link" href="/about/">
+            Más sobre mí ↗
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap connect">
+        <p class="eyebrow">04 / Establecer conexión</p>
+        <h2>
+          La próxima puerta
+          <br />
+          la abrimos conversando.
+        </h2>
+        <p class="muted">
+          Encuéntrame en mis redes para seguir compartiendo conocimiento.
+        </p>
+        <a
+          class="button primary"
+          href="https://linkedin.com/in/crhystamil/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Conectar en LinkedIn ↗
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+<style>
+  .services-intro {
+    max-width: 700px;
+    font-size: 14px;
+    margin: -12px 0 32px;
+  }
+  .course-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .course-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  .course-top .eyebrow {
+    font-size: 10px;
+  }
+  .course-link {
+    display: block;
+    margin-top: 28px;
+    color: var(--sec);
+    font-size: 12px;
+  }
+  .about-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+  }
+  .about-preview h2 {
+    line-height: 1.3;
+  }
+  .about-preview h2 span {
+    color: var(--sec);
+  }
+  .about-preview p.muted {
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+  .connect {
+    text-align: center;
+    position: relative;
+    padding-block: 18px;
+    background: radial-gradient(ellipse, #71f6a208, transparent 65%);
+  }
+  .connect h2 {
+    margin: 20px 0;
+    font-size: clamp(30px, 4vw, 48px);
+  }
+  .connect p.muted {
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 760px) {
+    .course-grid,
+    .about-preview {
+      grid-template-columns: 1fr;
+    }
+    .about-preview {
+      gap: 28px;
+    }
+    .course-top {
+      flex-wrap: wrap;
+    }
+  }
+</style>

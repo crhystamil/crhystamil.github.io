@@ -1,0 +1,102 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/nav.astro";
+import Footer from "../../components/footer.astro";
+import ServiceCards from "../../components/serviceCards.astro";
+import { serviceContact, contactEmail } from "../../data/site";
+---
+
+<Layout
+  title="Servicios de ciberseguridad"
+  description="Servicios de pentesting web, de infraestructura y móvil, y capacitaciones en ciberseguridad para equipos y organizaciones. El Cerrajero — Cristhian L."
+>
+  <Nav />
+  <main id="contenido" class="wrap">
+    <header class="page-header">
+      <p class="eyebrow">Servicios profesionales / El Cerrajero</p>
+      <h1>
+        Conoce tus riesgos.
+        <br />
+        Fortalece tu seguridad.
+      </h1>
+      <p>
+        Acompaño a organizaciones y equipos con pruebas de seguridad y
+        capacitación práctica. Conversemos sobre tus necesidades para definir el
+        alcance adecuado para tu proyecto.
+      </p>
+    </header>
+    <section aria-labelledby="service-catalog">
+      <h2 id="service-catalog" class="catalog-title">
+        Pentesting y formación especializada
+      </h2>
+      <ServiceCards detailed />
+    </section>
+    <section class="service-contact" aria-labelledby="contact-title">
+      <div>
+        <p class="eyebrow">Hablemos de tu proyecto</p>
+        <h2 id="contact-title">
+          La seguridad comienza
+          <br />
+          con una conversación.
+        </h2>
+        <p class="muted">
+          Cuéntame qué necesitas evaluar o qué habilidades quieres desarrollar
+          en tu equipo. Revisaremos los objetivos y el alcance del servicio.
+        </p>
+        <a class="contact-email" href={serviceContact}>
+          {contactEmail}
+        </a>
+      </div>
+      <a class="button primary" href={serviceContact}>
+        Solicitar información ↗
+      </a>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .catalog-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 28px;
+  }
+  .service-contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 36px;
+    margin: 64px 0 80px;
+    padding: 36px;
+    border: 1px solid var(--accent-line);
+    border-radius: 8px;
+    background: var(--surface);
+  }
+  .service-contact h2 {
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 500;
+    margin: 18px 0;
+  }
+  .service-contact p.muted {
+    max-width: 600px;
+    font-size: 13px;
+  }
+  .service-contact .button {
+    flex-shrink: 0;
+  }
+  .contact-email {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--sec);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+  @media (max-width: 760px) {
+    .service-contact {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 26px 22px;
+      margin: 44px 0 60px;
+    }
+  }
+</style>

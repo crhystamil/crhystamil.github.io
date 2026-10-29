@@ -1,0 +1,11 @@
+# El Cerrajero
+
+> La llave a la ciberseguridad. Portal personal de Cristhian L.
+
+- [Inicio](https://elcerrajero.online/)
+- [Servicios](https://elcerrajero.online/services/): pentesting web, infraestructura, móvil y capacitaciones.
+- [Blog en Medium](https://crhystamil.medium.com/): publicaciones externas de El Cerrajero.
+- [Cursos](https://elcerrajero.online/courses/): formación en preparación.
+- [Wiki](https://wiki.elcerrajero.online/): información de cursos, documentación y contenidos en desarrollo.
+- [Contacto](mailto:contacto@elcerrajero.online)
+- [Sobre mí](https://elcerrajero.online/about/): trayectoria profesional.

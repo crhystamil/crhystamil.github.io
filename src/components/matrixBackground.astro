@@ -1,0 +1,80 @@
+---
+import LetterGlitch from "../React/LetterGlitch";
+---
+
+<div class="matrix-background" aria-hidden="true">
+  <div class="matrix-code">
+    <LetterGlitch
+      client:load
+      variant="ambient"
+      glitchColors={["#299952", "#56da86", "#a0ffc0"]}
+      glitchSpeed={240}
+      centerVignette={false}
+      outerVignette={false}
+      smooth={true}
+    />
+  </div>
+  <div class="matrix-grid"></div>
+  <div class="matrix-light"></div>
+</div>
+
+<style>
+  .matrix-background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+    contain: strict;
+  }
+  .matrix-code {
+    position: absolute;
+    inset: 0;
+    opacity: var(--matrix-opacity);
+    mask-image: linear-gradient(
+      90deg,
+      black,
+      #000c 22%,
+      #0008 40%,
+      #0008 60%,
+      #000c 78%,
+      black
+    );
+  }
+  .matrix-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--matrix-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--matrix-grid) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: linear-gradient(black, transparent 80%);
+  }
+  .matrix-light {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 90% 12%, #25513b18, transparent 48%),
+      linear-gradient(
+        180deg,
+        var(--matrix-top),
+        transparent 18%,
+        transparent 80%,
+        var(--matrix-bottom)
+      );
+  }
+  @media (max-width: 760px) {
+    .matrix-code {
+      opacity: var(--matrix-opacity-mobile);
+    }
+    .matrix-grid {
+      background-size: 56px 56px;
+    }
+  }
+  @media print {
+    .matrix-background {
+      display: none;
+    }
+  }
+</style>

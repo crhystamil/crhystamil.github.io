@@ -1,0 +1,140 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/nav.astro";
+import Footer from "../../components/footer.astro";
+import { courses, wikiUrl } from "../../data/site";
+---
+
+<Layout
+  title="Cursos"
+  description="Formación de El Cerrajero: reversing de aplicaciones Android, Linux Pentesting, Windows Pentesting y pruebas de carga con JMeter."
+>
+  <Nav />
+  <main id="contenido" class="wrap">
+    <header class="page-header">
+      <p class="eyebrow">Formación · El Cerrajero</p>
+      <h1>
+        El conocimiento
+        <br />
+        es la mejor llave.
+      </h1>
+      <p>
+        Un espacio para aprender ciberseguridad con un enfoque práctico y
+        accesible. Estas son las líneas de formación en preparación.
+      </p>
+    </header>
+    <section class="wiki-resource card" aria-labelledby="wiki-title">
+      <div>
+        <p class="eyebrow">Documentación y conocimiento</p>
+        <h2 id="wiki-title">Explora la wiki de El Cerrajero</h2>
+        <p class="muted">
+          Un espacio para reunir la información de los cursos, documentación
+          técnica y el contenido que voy desarrollando.
+        </p>
+      </div>
+      <a
+        class="button primary"
+        href={wikiUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Acceder a la wiki ↗
+      </a>
+    </section>
+    <section class="courses" aria-label="Cursos en preparación">
+      {courses.map((course) => (
+        <a class="card" href={course.url}>
+          <div class="course-meta">
+            <span class="eyebrow">{course.code}</span>
+            <span class="tag">Próximamente</span>
+          </div>
+          <h2>{course.title}</h2>
+          <p>{course.description}</p>
+          <span class="more">
+            {course.code.startsWith("01") || course.code.startsWith("02")
+              ? "Ver detalles →"
+              : "En preparación"}
+          </span>
+        </a>
+      ))}
+    </section>
+    <section class="section" id="proximos">
+      <p class="eyebrow">Próximos pasos</p>
+      <h2>Seguimos preparando contenido.</h2>
+      <p class="muted notice">
+        Las fechas y la inscripción todavía no están publicadas. Sigue las
+        novedades en mis canales.
+      </p>
+      <a
+        class="button"
+        href="https://youtube.com/@crhystamil"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ir al canal de YouTube ↗
+      </a>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+<style>
+  .wiki-resource {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    margin-bottom: 40px;
+  }
+  .wiki-resource h2 {
+    margin: 14px 0;
+    font-size: 26px;
+    font-weight: 500;
+  }
+  .wiki-resource .muted {
+    max-width: 650px;
+  }
+  .wiki-resource .button {
+    flex-shrink: 0;
+  }
+  .courses {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-bottom: 64px;
+  }
+  .course-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .course-meta .eyebrow {
+    font-size: 10px;
+  }
+  .courses h2 {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .more {
+    display: block;
+    color: var(--sec);
+    margin-top: 28px;
+    font-size: 12px;
+  }
+  .notice {
+    margin: 24px 0;
+    max-width: 640px;
+  }
+  @media (max-width: 760px) {
+    .wiki-resource {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .courses {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

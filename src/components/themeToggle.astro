@@ -1,0 +1,114 @@
+<button
+  class="theme-toggle"
+  id="theme-toggle"
+  type="button"
+  aria-label="Activar tema claro"
+  title="Activar tema claro"
+  hidden
+>
+  <svg
+    class="sun"
+    viewBox="0 0 24 24"
+    width="19"
+    height="19"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    aria-hidden="true"
+  >
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5" />
+  </svg>
+  <svg
+    class="moon"
+    viewBox="0 0 24 24"
+    width="19"
+    height="19"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M21 13a9 9 0 0 1-10-10 9 9 0 1 0 10 10Z" />
+  </svg>
+</button>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("#theme-toggle");
+  const root = document.documentElement;
+  const preference = window.matchMedia("(prefers-color-scheme: light)");
+  const key = "elcerrajero-theme";
+  const readSaved = () => {
+    try {
+      const value = localStorage.getItem(key);
+      return value === "light" || value === "dark" ? value : null;
+    } catch {
+      return null;
+    }
+  };
+  const applyTheme = (theme: "light" | "dark") => {
+    root.dataset.theme = theme;
+    const label =
+      theme === "dark" ? "Activar tema claro" : "Activar tema oscuro";
+    button?.setAttribute("aria-label", label);
+    button?.setAttribute("title", label);
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", theme === "light" ? "#f3f8f5" : "#080e0b");
+  };
+  const followPreference = () =>
+    applyTheme(readSaved() ?? (preference.matches ? "light" : "dark"));
+  if (button) {
+    applyTheme(root.dataset.theme === "light" ? "light" : "dark");
+    button.hidden = false;
+    button.addEventListener("click", () => {
+      const theme = root.dataset.theme === "dark" ? "light" : "dark";
+      applyTheme(theme);
+      try {
+        localStorage.setItem(key, theme);
+      } catch {}
+    });
+    preference.addEventListener("change", followPreference);
+    window.addEventListener("storage", (event) => {
+      if (event.key === key || event.key === null) followPreference();
+    });
+  }
+</script>
+
+<style>
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--surface);
+    color: var(--white);
+    cursor: pointer;
+    transition:
+      border-color 0.2s,
+      background 0.2s;
+  }
+  .theme-toggle[hidden] {
+    display: none;
+  }
+  .theme-toggle:hover {
+    border-color: var(--accent-line);
+    background: var(--surface-raised);
+  }
+  .moon {
+    display: none;
+  }
+  :global(html[data-theme="light"]) .sun {
+    display: none;
+  }
+  :global(html[data-theme="light"]) .moon {
+    display: block;
+  }
+</style>

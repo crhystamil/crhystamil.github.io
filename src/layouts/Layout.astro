@@ -1,0 +1,91 @@
+---
+import "../styles/global.css";
+import MatrixBackground from "../components/matrixBackground.astro";
+interface Props {
+  title: string;
+  description?: string;
+  type?: string;
+}
+const {
+  title,
+  description = "La llave a la ciberseguridad. Servicios de pentesting web, infraestructura y móvil, y capacitaciones para equipos y organizaciones.",
+  type = "website",
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, "https://elcerrajero.online");
+const fullTitle = `${title} | El Cerrajero`;
+---
+
+<!doctype html>
+<html lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080e0b" />
+    <script is:inline>
+      (() => {
+        let saved;
+        try {
+          saved = localStorage.getItem("elcerrajero-theme");
+        } catch {}
+        const theme =
+          saved === "light" || saved === "dark"
+            ? saved
+            : window.matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+        document.documentElement.dataset.theme = theme;
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute("content", theme === "light" ? "#f3f8f5" : "#080e0b");
+      })();
+    </script>
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/elcerrajero.png" />
+    <link rel="canonical" href={canonical} />
+    <link
+      rel="preload"
+      href="/fonts/montserrat-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content="https://elcerrajero.online/elcerrajero.png"
+    />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content={type} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="El Cerrajero" />
+    <meta name="twitter:card" content="summary" />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Cristhian L.",
+        alternateName: "El Cerrajero",
+        url: "https://elcerrajero.online/",
+        image: "https://elcerrajero.online/elcerrajero.png",
+        sameAs: [
+          "https://github.com/crhystamil",
+          "https://linkedin.com/in/crhystamil/",
+          "https://crhystamil.medium.com/",
+        ],
+      })}
+    ></script>
+  </head>
+  <body>
+    <MatrixBackground />
+    <a class="skip-link" href="#contenido">
+      Saltar al contenido
+    </a>
+    <div class="site-shell">
+      <slot />
+    </div>
+  </body>
+</html>
